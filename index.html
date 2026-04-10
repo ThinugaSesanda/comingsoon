@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon</title>
+  <link rel="icon" type="image/x-icon" href="images/ash.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000000;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content { text-align: center; padding: 2rem; }
+    .content img {
+      width: 120px;
+      margin-bottom: 1.5rem;
+      transition: all 1.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .content img:hover {
+    transform: scale(1.04) rotate(0deg) translate(0px, 0px) skewX(0deg);
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    width : 200px;
+    filter: brightness(1.2);
+    }
+
+    .sub {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #c1b20ee0;
+      margin-bottom: 1.5rem;
+    }
+
+    .typewriter {
+      font-size: 56px;
+      font-weight: 400;
+      color: #eec215;
+      display: inline;
+      
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 52px;
+      background: #567C8D;
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .desc {
+      display: block;
+      font-size: 15px;
+      font-weight: 300;
+      color: #aaa;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <img src="ash.png" alt="">
+    <div>
+      <span class="typewriter" id="typewriter"></span>
+      <span class="cursor"></span>
+    </div>
+    <span class="desc">Brace Yourself for the impact</span>
+  </div>
+
+  <script>
+    const typeEl = document.getElementById('typewriter');
+    const words = ['Coming Soon.', 'Stay Tuned.', 'Almost Ready.'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function type() {
+      const current = words[wordIndex];
+      if (!deleting) {
+        typeEl.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(type, 1800);
+          return;
+        }
+      } else {
+        typeEl.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+      setTimeout(type, deleting ? 60 : 100);
+    }
+
+    type();
+  </script>
+</body>
+</html>

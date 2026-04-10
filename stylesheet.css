@@ -1,0 +1,50 @@
+.coming-soon {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.coming-soon-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.coming-sub {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #567C8D;
+  margin-bottom: 1rem;
+}
+
+.typewriter {
+  font-size: 52px;
+  font-weight: 300;
+  color: #2F4156;
+  margin-bottom: 1.5rem;
+  min-height: 70px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 52px;
+  background: #567C8D;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.coming-desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: #888;
+  margin-top: 1rem;
+}
